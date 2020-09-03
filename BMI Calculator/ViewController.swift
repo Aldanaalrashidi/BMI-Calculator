@@ -33,12 +33,11 @@ class ViewController: UIViewController {
       func bmiStatus(bmi: Double) -> String {
           if bmi < 20{
               return "ضعيف"
-          }else if bmi < 25 {
+          }else if bmi < 25{
               return "جيد"
           }else if bmi > 25{
               return "سمين"
-          }
-          else{
+          }else{
             return "خطأ"
         }
       }
@@ -52,4 +51,3 @@ class ViewController: UIViewController {
         self.statusLabel.text = bmiStatus
     }
 }
-
