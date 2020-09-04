@@ -23,7 +23,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func isTapped(_ sender: Any) {
-        calculateBmiAndUpdateView()
+        calculateBMIAndUpdateView()
     }
     
     func calculateBmi(weight: Double, height: Double) -> Double{
@@ -42,7 +42,7 @@ class ViewController: UIViewController {
         }
       }
     
-    func calculateBmiAndUpdateView(){
+    func calculateBMIAndUpdateView(){
         let weight = Double(weightField.text!)
         let height = Double(heightField.text!)
         let bmi = calculateBmi(weight: weight ?? 0.0, height: height ?? 0.0)
