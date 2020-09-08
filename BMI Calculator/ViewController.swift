@@ -15,6 +15,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var bmiLabel: UILabel!
     @IBOutlet weak var statusLabel: UILabel!
     @IBOutlet weak var calculateBtn: UIButton!
+    var color: UIColor?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,20 +28,24 @@ class ViewController: UIViewController {
     }
     
     func calculateBmi(weight: Double, height: Double) -> Double{
-          return weight / (height*height)
-      }
-      
-      func bmiStatus(bmi: Double) -> String {
-          if bmi < 20{
-              return "ضعيف"
-          }else if bmi < 25{
-              return "جيد"
-          }else if bmi > 25{
-              return "سمين"
-          }else{
+        return weight / (height*height)
+    }
+    
+    func bmiStatus(bmi: Double) -> String {
+        if bmi < 20{
+            color = .systemGreen
+            return "ضعيف"
+        }else if bmi < 25{
+            color = .orange
+            return "جيد"
+        }else if bmi > 25{
+            color = .red
+            return "سمين"
+        }else{
+            color = .black
             return "خطأ"
         }
-      }
+    }
     
     func calculateBMIAndUpdateView(){
         let weight = Double(weightField.text!)
@@ -48,6 +53,8 @@ class ViewController: UIViewController {
         let bmi = calculateBmi(weight: weight ?? 0.0, height: height ?? 0.0)
         let bmiStatus = self.bmiStatus(bmi: bmi)
         self.bmiLabel.text = String(format: "%.1f", bmi)
+        self.bmiLabel.textColor = color
         self.statusLabel.text = bmiStatus
+        self.statusLabel.textColor = color
     }
 }
